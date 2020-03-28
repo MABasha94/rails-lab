@@ -1,0 +1,15 @@
+<div class="mt-3">
+  <h1>Posts</h1>
+</div>
+<% @posts.each do |post|%>
+    <div class="card md-8 mb-3" style="background-color: lightblue">
+      <div class="card-body">
+        <h5 class="card-title">Title: <%= post.title  %></h5>
+        <h5 class="card-title">User_Name: <%= post.user.name  %></h5>
+        <h5 class="card-text"><%= post.content  %></h5>
+        <a href="<%= edit_post_path(post) %>" class="btn btn-primary">Update</a>
+        <%= link_to 'delete', post, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        <a href="<%= post_path(post) %>" class="btn btn-warning">Show Post</a>
+      </div>
+    </div>
+<% end %>
